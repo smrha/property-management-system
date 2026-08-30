@@ -1,5 +1,5 @@
 /* static/src/input.css */
-
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
 @import "tailwindcss";
 /* choose one of the following */
 
@@ -26,3 +26,13 @@
 */
 @plugin "flowbite/plugin";
 @source "../../node_modules/flowbite";
+
+@theme {
+  --font-vazir: "Vazirmatn", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-vazir;
+  }
+}

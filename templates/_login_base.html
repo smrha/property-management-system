@@ -10,8 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سامانه اموال جهاددانشگاهی</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'img/logo/favicon.png' %}">
+    <title>Django + Tailwind CSS + Flowbite</title>
 
     {% compress css %}
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
@@ -20,8 +19,10 @@
 </head>
 
 <body class="bg-blue-50">
-    {% block content %}
-    {% endblock content %}
+    <!-- <div class="container mx-auto mt-4"> -->
+        {% block content %}
+        {% endblock content %}
+    <!-- </div> -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 
 </body>
