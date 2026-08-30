@@ -1179,6 +1179,9 @@
   .mr-4 {
     margin-right: calc(var(--spacing) * 4);
   }
+  .mr-6 {
+    margin-right: calc(var(--spacing) * 6);
+  }
   .apexcharts-canvas .apexcharts-tooltip .apexcharts-tooltip-title {
     padding-top: 0.5rem !important;
     padding-bottom: 0.5rem !important;
@@ -1240,11 +1243,17 @@
     border-width: 10px !important;
     margin-left: -10px !important;
   }
+  .ml-1 {
+    margin-left: var(--spacing);
+  }
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
   .ml-3 {
     margin-left: calc(var(--spacing) * 3);
+  }
+  .ml-4 {
+    margin-left: calc(var(--spacing) * 4);
   }
   .ml-6 {
     margin-left: calc(var(--spacing) * 6);
@@ -2048,6 +2057,9 @@
   .dark .apexcharts-canvas .apexcharts-legend-text:not(.apexcharts-inactive-legend):hover {
     color: heading !important;
   }
+  .pr-3 {
+    padding-right: calc(var(--spacing) * 3);
+  }
   .pl-3 {
     padding-left: calc(var(--spacing) * 3);
   }
@@ -2065,6 +2077,9 @@
   }
   .text-left {
     text-align: left;
+  }
+  .text-right {
+    text-align: right;
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -2376,6 +2391,12 @@
     }
     .md\:mr-0 {
       margin-right: 0px;
+    }
+    .md\:mr-64 {
+      margin-right: calc(var(--spacing) * 64);
+    }
+    .md\:ml-0 {
+      margin-left: 0px;
     }
     .md\:ml-64 {
       margin-left: calc(var(--spacing) * 64);
