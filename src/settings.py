@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'compressor',
     'accounts.apps.AccountsConfig',
     'organization.apps.OrganizationConfig',
+    'assets.apps.AssetsConfig',
 ]
 
 MIDDLEWARE = [
