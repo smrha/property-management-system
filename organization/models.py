@@ -15,7 +15,7 @@ class Department(models.Model):
     )
 
     parent = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        'Department',
         on_delete=models.SET_NULL,
         null=True,
         blank=True,

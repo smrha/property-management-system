@@ -1,0 +1,117 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="antialiased bg-gray-50 dark:bg-gray-900">
+    {% include 'base/navbar.html' %}
+
+    <!-- Sidebar -->
+
+    {% include 'base/sidebar.html' %}
+
+    <main class="md:mr-64 h-auto pt-15">
+      <div class="bg-red-300 border border-gray-300">
+        <nav class="flex bg-white p-2" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+            <li class="inline-flex items-center">
+            <a href="#" class="inline-flex items-center text-sm font-medium text-body hover:text-fg-brand">
+                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/></svg>
+                خانه
+            </a>
+            </li>
+            <li>
+            <div class="flex items-center space-x-1.5">
+                <svg class="w-3.5 h-3.5 rtl:rotate-180 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg>
+                <a href="#" class="inline-flex items-center text-sm font-medium text-body hover:text-fg-brand">اموال</a>
+            </div>
+            </li>
+            <li aria-current="page">
+            <div class="flex items-center space-x-1.5">
+                <svg class="w-3.5 h-3.5 rtl:rotate-180 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/></svg>
+                <span class="inline-flex items-center text-sm font-medium text-body-subtle">افزودن</span>
+            </div>
+            </li>
+        </ol>
+        </nav>
+        <div class="bg-white border-b border-gray-300 p-2">
+            <h1 class="text-2xl px-3">افزودن دارایی جدید</h1>
+        </div>    
+        <section class="bg-white dark:bg-gray-900">
+        <div class="py-8 px-4 mx-auto">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+                    <div class="sm:col-span-2 w-1/2">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.name.label}}</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="w-full">
+                        <label for="asset_code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.asset_code.label}}</label>
+                        {{ form.asset_code }}
+                    </div>
+                    <div class="w-full">
+                        <label for="serial_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.serial_number.label}}</label>
+                        {{ form.serial_number }}
+                    </div>
+                    <div class="w-full">
+                        <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.category.label}}</label>
+                        {{ form.category }}
+                    </div>
+                    <div class="w-full">
+                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.brand.label}}</label>
+                        {{ form.brand }}
+                    </div>
+                    <div class="sm:col-span-2 w-1/2">
+                        <label for="model" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.model.label}}</label>
+                        {{ form.model }}
+                    </div>
+                    <div class="w-full">
+                        <label for="purchase_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.purchase_date.label}}</label>
+                        {{ form.purchase_date }}
+                    </div>
+                    <div class="w-full">
+                        <label for="purchase_price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.purchase_price.label}}</label>
+                        {{ form.purchase_price }}
+                    </div>
+                    <div class="w-full">
+                        <label for="location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.location.label}}</label>
+                        {{ form.location }}
+                    </div>
+                    <div class="w-full">
+                        <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.status.label}}</label>
+                        {{ form.status }}
+                    </div>
+                    <div class="w-full">
+                        <label for="warranty_start" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.warranty_start.label}}</label>
+                        {{ form.warranty_start }}
+                    </div>
+                    <div class="w-full">
+                        <label for="warranty_end" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.warranty_end.label}}</label>
+                        {{ form.warranty_end }}
+                    </div>
+                    <div class="w-full">
+                        <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.image.label}}</label>
+                        {{ form.image }}
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
+                    </div>
+                    <div class="w-full">
+                        <label for="is_active" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.is_active.label}}</label>
+                        {{ form.is_active }}
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ form.description.label}}</label>
+                        {{ form.description }}
+                    </div>
+                </div>
+                <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                    افزودن
+                </button>
+            </form>
+        </div>
+        </section>
+      </div>
+    
+
+      
+    </main>
+  </div>
+{% endblock content %}
