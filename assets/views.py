@@ -3,6 +3,17 @@ from .models import Asset
 from .forms import AssetForm
 
 
+def assets_delete_view(request, id):
+    asset = get_object_or_404(Asset, id=id)
+    if request.method == "POST":
+        asset.delete()
+
+        return redirect("assets:assets_list")
+    context = {
+                'asset': asset,
+            }
+    return render(request, "assets/assets_confirm_delete.html", context)
+
 def assets_edit_view(request, id):
     asset = get_object_or_404(Asset, id=id)
     if request.method == "POST":
