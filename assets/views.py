@@ -3,7 +3,28 @@ from .models import Asset
 from .forms import AssetForm
 
 
-def asset_detail_view(request, id):
+def assets_edit_view(request, id):
+    asset = get_object_or_404(Asset, id=id)
+    if request.method == "POST":
+        form = AssetForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect("assets:assets_detail", id=asset.id)
+
+    else:
+
+        form = AssetForm(
+            instance=asset
+        )
+    context = {
+            "form": form,
+            'asset': asset,
+        }
+    return render(request, "assets/assets_edit.html", context)
+
+def assets_detail_view(request, id):
     asset = get_object_or_404(Asset, id=id)
     context = {
         'asset': asset,
