@@ -1,6 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Asset
 from .forms import AssetForm
+
+
+def asset_detail_view(request, id):
+    asset = get_object_or_404(Asset, id=id)
+    context = {
+        'asset': asset,
+    }
+    return render(request, "assets/assets_detail.html", context)
 
 def assets_create_view(request):
 
