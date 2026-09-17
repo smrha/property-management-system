@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import User
 
 class Location(models.Model):
 
@@ -273,3 +274,41 @@ class Asset(models.Model):
 
     def __str__(self):
         return f"{self.asset_code} - {self.name}"
+
+
+    from django.db import models
+
+
+class AssetAssignment(models.Model):
+    asset = models.ForeignKey(
+        Asset,
+        on_delete=models.PROTECT,
+        related_name="assignments",
+        verbose_name="دارایی"
+    )
+
+    employee = models.ForeignKey(
+        User,
+        on_delete=models.PROTECT,
+        related_name="asset_assignments",
+        verbose_name="کارمند"
+    )
+
+    assigned_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="تاریخ تخصیص"
+    )
+
+    returned_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="تاریخ بازگشت"
+    )
+
+    description = models.TextField(
+        blank=True,
+        verbose_name="توضیحات"
+    )
+
+    def __str__(self):
+        return f"{self.asset} - {self.employee}"

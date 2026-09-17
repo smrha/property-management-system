@@ -1,7 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Asset
-from .forms import AssetForm
+from .forms import AssetForm, AssetAssignmentForm
 
+
+def assets_assignment_view(request, id):
+    asset = get_object_or_404(Asset, id=id)
+    form = AssetAssignmentForm()
+    context = {
+        "asset": asset,
+        "form": form,
+    }
+    return render(request, "assets/assets_assignment.html", context)
 
 def assets_delete_view(request, id):
     asset = get_object_or_404(Asset, id=id)
@@ -10,8 +19,8 @@ def assets_delete_view(request, id):
 
         return redirect("assets:assets_list")
     context = {
-                'asset': asset,
-            }
+        "asset": asset,
+    }
     return render(request, "assets/assets_confirm_delete.html", context)
 
 def assets_edit_view(request, id):
